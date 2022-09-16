@@ -1,0 +1,33 @@
+float temp;
+void setup()
+{
+
+pinMode(4,INPUT);
+pinMode(12,OUTPUT);
+Serial.begin(9600);
+
+}
+
+void loop()
+{
+if(digitalRead(4)==HIGH)
+{
+tone(12,523,1000);
+
+} else {
+noTone(12);
+}
+temp=analogRead(A3);
+Serial.println(&quot;temp:&quot;);
+Serial.println(temp);
+temp=temp*0.48828125;
+Serial.println(temp);
+
+if(temp&gt;=110.84){
+tone(12,100,2000);
+Serial.println(&quot;Above 6o c temperture&quot;);
+}
+else{
+noTone(12);
+}
+}
